@@ -15,18 +15,25 @@ setbuf(stdout, NULL);
 
     if (na <=2) { fprintf(stderr, "\nUsage: %s to_pipe from_pipe\n\n", av[0]); exit(-1) ; }
 
-    fout = fopen((const char *) av[1], "w") ; putchar('.') ;
-    finp = fopen((const char *) av[2], "r") ; putchar('.') ;
-    printf("# READY TO START EXCHANGE ....\n"); 
+    fout = fopen((const char *) av[1], "w") ;
+    finp = fopen((const char *) av[2], "r") ;
+    //printf("# READY TO START EXCHANGE ....\n"); 
 
-    for (int i = 0 ; i< 10 ; i++) { putchar('.') ;
-	    printf(">>>> FICHERO%4.4d.wav\n", i) ; fflush(stdout) ;
-	    fprintf(fout, "FICHERO%4.4d.wav\n", i) ; fflush(fout) ;
+//    for (int i = 0 ; i< 2 ; i++) {
+	    //printf(">>>> FICHERO%4.4d.wav\n", i) ;
+	    fflush(stdout) ;
+
+	    fprintf(fout, "%s %s %s %s %s %s\n", av[3], av[4], av[5], av[6], av[7], av[8]) ;
+	    fflush(fout) ;
+	    //printf("\nwaiting for server response...\n");
 /* Wait until the server ends the processing */
-	    fgets(res, sizeof(res)/sizeof(char), finp) ; fflush(finp) ;
-	    printf("    <<<< %s\n", res) ; fflush(stdout) ;
+	    fgets(res, sizeof(res)/sizeof(char), finp) ;
+	    fflush(finp) ;
+	    //printf("\nserver response finished\n");
+	    printf("%s", res) ; 
+	    fflush(stdout) ;
 
-    }
+  //  }
     fclose(fout) ;
     fclose(finp) ;
 }

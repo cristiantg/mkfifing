@@ -1,6 +1,6 @@
 #!/bin/bash
 salida() {
-	echo "\n[Server-Interruptus]\n\n"
+	echo -e "\n[Server-Interruptus]\n\n"
 	exit $1
 }
 
@@ -13,6 +13,8 @@ do
     do
 	./server-load.sh $que
 	# Answer to the client with the task done
-	echo $que nuevo >&4
+	#echo $que >&4
+	IFS=' ' read -ra ADDR <<< "$que"
+	echo ${ADDR[2]}/${ADDR[3]} >&4
     done ) 3<request 4>response 
 done
