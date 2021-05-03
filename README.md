@@ -1,11 +1,16 @@
 # mkfifing
 
-First terminal:
+Preparation (just one time):
 
 ```
 cd mkfifing
 chmod 770 ./*
 ./init.sh
+```
+
+First terminal:
+
+```
 ./server.sh
 ```
 
@@ -14,6 +19,5 @@ Also you can run ```./start.sh``` instead of ```./server.sh``` to send the proce
 Second terminal:
 
 ```
-cd mkfifing
-./cli request response
+./client.sh
 ```
