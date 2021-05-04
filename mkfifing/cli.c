@@ -8,7 +8,7 @@ int main (int na, char *av[]) {
     FILE *finp = NULL ;
 
 static
-    char	res[2048] ;
+    char	res[40960] ;
 
 
 setbuf(stdout, NULL);
@@ -27,6 +27,8 @@ setbuf(stdout, NULL);
 	    fflush(fout) ;
 	    //printf("\nwaiting for server response...\n");
 /* Wait until the server ends the processing */
+	    printf("----->> ahora %lu\n", sizeof(char));
+	    printf("----->> ahora %lu\n", sizeof(res));
 	    fgets(res, sizeof(res)/sizeof(char), finp) ;
 	    fflush(finp) ;
 	    //printf("\nserver response finished\n");

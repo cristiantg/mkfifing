@@ -7,6 +7,8 @@ cd mkfifing
 chmod 770 ./*
 ./init.sh
 ```
+Also, check/change the value of ``` char res[VALUE] ``` if you expect long responses.
+
 
 First terminal:
 
